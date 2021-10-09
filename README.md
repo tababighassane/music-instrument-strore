@@ -1,1 +1,1 @@
-# music-instrument-strore
+# music-instrument-store
