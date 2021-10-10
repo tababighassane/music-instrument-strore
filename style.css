@@ -1,0 +1,111 @@
+body{
+  background-image: url("https://cutewallpaper.org/21/music-background-image/Notes-And-Butterflies-Music-Background-Assets-For-All.jpg");
+  background-size: cover;
+}
+  /* top nav */
+  .topnav {
+    overflow: hidden;
+    background-color: #333;
+  }
+  
+  .topnav a {
+    float: left;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+  }
+  
+  .topnav a:hover {
+    background-color: #ddd;
+    color: black;
+  }
+  
+  .topnav a.active {
+    background-color: #c0c4c2;
+    color: white;
+  }
+
+  #cart-icon{
+    width: 50px;
+    height: 50px;
+  position: fixed;
+  right: 10%;
+  }
+  #accumulator{
+    position: fixed;
+  right: 1%;
+  color: red;
+  }
+
+  /* home page */
+  #bestSeller{
+    
+   width: 30%;
+   height: 30%;
+   margin-left: 33%;
+   margin-top: 5%;
+  }
+
+  
+  #news-title{
+    font-size: 164%;
+    margin-left: 38%;
+    margin-top: 5%;
+  }
+  #topSeller-title{
+    font-size: 164%;
+    margin-left: 46%;
+    margin-top: 4%;
+  }
+  #news{
+    border-style: solid ;
+    width: 900px;
+    height: 400px;
+    margin-left: 19%;
+    margin-top: 2%;
+  }
+  /* home page end */
+  
+  /* product page */
+  .filts{
+    font-size: 150%;
+    padding-bottom: 5%;
+    margin-left: 1%;
+    
+  }
+  .itemImage{
+    width: 30%;
+    height: 30%;
+  }
+  #items-container{
+    margin-left: 40%;
+    position: absolute;
+    float: inline-end;
+    
+  }
+
+  .item-container{
+   
+    margin-top: 4%;
+  
+    ;
+  }
+  .itemPrice-container{
+    margin-left: 10%;
+    
+  }
+  .cart{
+    margin-left: 10%;
+  }
+
+  #displ{
+    display: flex;
+  }
+  /* .itemModel-container{
+    text-align: justify;
+  } */
+
+
+

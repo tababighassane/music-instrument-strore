@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>instrument store</title>
+    <script
+    src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+    crossorigin="anonymous"
+  ></script>
+    <link rel="stylesheet" href="./style.css">
+
+</head>
+<body>
+<!-- nav bar -->
+    <div class="topnav">
+        <a href="index.html">Home</a>
+        <a class="active" href="page1.html">products</a>
+        <a href="contactus.html">Contact</a>
+        <a href="aboutus.html">About us</a>
+        <img id="cart-icon" src="data:image/png;base64,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" alt="cart-icon">
+        <div id="accumulator"></div>
+    </div>
+<!-- nav bar end -->
+<!-- side bar -->
+<input type="text" id="halim">
+<button onclick="halimfilter()">search</button>
+<div id="displ">
+<div class="sidebar">
+    <h1>Category</h1>
+    <div id="Guit" class="filts">Guitars</div>
+    <div id="Dru" class="filts">Drums</div>
+    <div id="Bass" class="filts">Basses</div>
+</div>
+<!-- side bar end -->
+    <div id="items-container"></div>  
+</div>   
+
+    <script src="./search.js"></script>
+</body>
+</html>
