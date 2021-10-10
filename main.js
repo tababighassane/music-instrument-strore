@@ -1,61 +1,3 @@
-function each(coll, f) {
-  if (Array.isArray(coll)) {
-    for (var i = 0; i < coll.length; i++) {
-      f(coll[i], i);
-    }
-  } else {
-    for (var key in coll) {
-      f(coll[key], key);
-    }
-  }
-}
-function map(array, f) {
-  var acc = [];
-  each(array, function (element, i) {
-    acc.push(f(element, i));
-  });
-  return acc;
-}
-function filter(array, f) {
-  var acc = [];
-  each(array, function (element, i) {
-    if (f(element, i)) {
-      acc.push(element);
-    }
-  });
-  return acc;
-}
-function reduce(array, f, acc) {
-  if (acc === undefined) {
-    acc = array[0];
-    array = array.slice(1);
-  }
-  each(array, function (element, i) {
-    acc = f(acc, element, i);
-  });
-  return acc;
-}
-
-//news image display
-var newsarray = [
-  "https://static.musiciansfriend.com/static/mf/selects/2021/r-home/mf-md-rhhs-rocktober-09-29-21.jpg",
-  "https://b96685b3361076eb477d-e277a17226bd00b2999c6ea72df861f9.ssl.cf2.rackcdn.com/19guitarcench.jpg",
-  "https://media.sweetwater.com/api/i/w-580__h-400__q-70__ha-0acbf32fcc971376__hmac-fc65a0274e693f4aca123a927e2ada0ca0281bac/sales/summer-drum-2021/06-SW-Promo-DrumMonth-LandingPage-FullWidthTile-Mobile-1160x800-2.jpg",
-];
-var image = document.getElementById("news");
-var i = 0;
-$("#news").click(function () {
-  if (i > newsarray.length - 1) {
-    i = 0;
-  }
-  image.src = newsarray[i];
-  i++;
-});
-
-
-
-
-
 ///all article
 //guitar
 
@@ -189,122 +131,31 @@ var b5 = {
 };
 
 var arrayOfItems = [g1, g2, g3, g4, g5, d1, d2, d3, d4, d5, b1, b2, b3, b4, b5];
-console.log(arrayOfItems)
+console.log(arrayOfItems);
 
-function displayItem(item) {
-  return $(
-    `<div class="item-container"> 
-    <img src=` +
-      item.image +
-      `alt="item" class="itemImage">` +
-      `<div class="itemModel-container">` +
-      item.model +
-      `</div>
-    <div class="itemPrice-container">` +
-      item.price +
-      ` dinars` +
-      `</div>
-      <button class="cart"> add to cart</button>
-    </div>`
-  );
+//top seller display
+function bs() {
+  var im = document.getElementById("bestSeller");
+  setInterval(function () {
+    var randomItemIndex = Math.floor(Math.random() * 12);
+    im.src = arrayOfItems[randomItemIndex].image;
+  }, 2000);
 }
 
-function displayItems(items) {
-  var $itemsContainer = $("#items-container").first();
-  $itemsContainer.empty();
-  var $items = map(items, function (item) {
-    return displayItem(item);
-  });
+bs();
 
-  each($items, function (item) {
-    $itemsContainer.append(item);
-  });
-}
-
-displayItems(arrayOfItems);
-
-// filters
-
-$("#Guit").click(function () {
-  var guitarArray = filter(arrayOfItems, function (element) {
-    return element.instrument === "guitar";
-  });
-  console.log(guitarArray)
-  displayItems(guitarArray);
-});
-$("#Dru").click(function () {
-  var drumsArray = filter(arrayOfItems, function (element) {
-    return element.instrument === "drums";
-  });
-  displayItems(drumsArray);
-});
-$("#Bass").click(function () {
-  var bassArray = filter(arrayOfItems, function (element) {
-    return element.instrument === "bass";
-  });
-  displayItems(bassArray);
-});
-
-function halimfilter(){
-  var n = $('#halim').val()
-  var arr = []
-  for(var i = 0 ; i < arrayOfItems.length ; i++){
-    if(arrayOfItems[i].instrument.includes(n)){
-      arr.push(arrayOfItems[i])
-    }
+//news image display
+var newsarray = [
+  "https://static.musiciansfriend.com/static/mf/selects/2021/r-home/mf-md-rhhs-rocktober-09-29-21.jpg",
+  "https://b96685b3361076eb477d-e277a17226bd00b2999c6ea72df861f9.ssl.cf2.rackcdn.com/19guitarcench.jpg",
+  "https://media.sweetwater.com/api/i/w-580__h-400__q-70__ha-0acbf32fcc971376__hmac-fc65a0274e693f4aca123a927e2ada0ca0281bac/sales/summer-drum-2021/06-SW-Promo-DrumMonth-LandingPage-FullWidthTile-Mobile-1160x800-2.jpg",
+];
+var image = document.getElementById("news");
+var i = 0;
+$("#news").click(function () {
+  if (i > newsarray.length - 1) {
+    i = 0;
   }
-  displayItems(arr);
-}
-//cart fonctionality
-
-var buysObj = [];
-
-function add(){
-  console.log("zdzkajdzalkndz")
-    var x = $(this).prev().prev().html();
-  var buyObj = filter(arrayOfItems, function (element) {
-    return element.model === x;
-  });
-  console.log(buysObj);
-  buysObj.push(buyObj[0]);
-  var h = reduce(
-    buysObj,
-    function (acc, element) {
-      return acc + element.price;
-    },
-    0
-  );
-  $("#accumulator").html(`Nbre of item ` + buysObj.length+` 
-      <br> Total amount `+h);
-
-}
-$(".cart").click(function () {
-  var x = $(this).prev().prev().html();
-  var buyObj = filter(arrayOfItems, function (element) {
-    return element.model === x;
-  });
-  buysObj.push(buyObj[0]);
-  var h = reduce(
-    buysObj,
-    function (acc, element) {
-      return acc + element.price;
-    },
-    0
-  );
-  $("#accumulator").html(`Nbre of item ` + buysObj.length+` 
-      <br> Total amount `+h);
+  image.src = newsarray[i];
+  i++;
 });
-
-
-//index top seller
-
-  function bs(){
-    var im = document.getElementById("bestSeller");
-setInterval(function(){
-    var randomItemIndex = Math.floor(Math.random()*12)
-    im.src= arrayOfItems[randomItemIndex].image;
-},2000);
-}
-
-bs()
- 

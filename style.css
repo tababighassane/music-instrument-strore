@@ -1,5 +1,5 @@
 body{
-  background-image: url("https://cutewallpaper.org/21/music-background-image/Notes-And-Butterflies-Music-Background-Assets-For-All.jpg");
+  background-image: url("https://media.istockphoto.com/photos/rock-guitarist-playing-guitar-in-a-live-show-with-stage-lights-picture-id1328150617?b=1&k=20&m=1328150617&s=170667a&w=0&h=dpMack_ZM_DWHilZzWz3gvhTOIryr_aBZP1jefQF2bs=");
   background-size: cover;
 }
   /* top nav */
@@ -44,7 +44,7 @@ body{
     
    width: 30%;
    height: 30%;
-   margin-left: 33%;
+   margin-left: 34%;
    margin-top: 5%;
   }
 
@@ -76,6 +76,8 @@ body{
     
   }
   .itemImage{
+    background: none;
+    border-radius: 100%;
     width: 30%;
     height: 30%;
   }
@@ -98,6 +100,10 @@ body{
   }
   .cart{
     margin-left: 10%;
+    background-color: brown;
+    border-radius: 8px;
+    height: 40px;
+    
   }
 
   #displ{
@@ -107,5 +113,29 @@ body{
     text-align: justify;
   } */
 
+  #search{
+    border-radius: 10px;
+    margin-top: 2%;
+    width: 200px;
+    height: 20px;
+  }
+#search:focus{
+  background-color: rgb(236, 234, 234);
+}
+.itemImage:hover{
+ border: 3px solid black;
+ 
+}
 
+li{
+  font-size: 20pt;
+}
+#biggy{
+  display: flex;
+  }
+  #next{
+    margin-left: 10%;
+  }
 
+.cart:hover{background-color: rgb(119, 83, 17);
+box-shadow: orangered;}

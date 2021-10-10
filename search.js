@@ -199,7 +199,7 @@ function displayItems(items) {
 
 displayItems(arrayOfItems);
 
-// filters
+// filter guitar
 
 $("#Guit").click(function () {
   var guitarArray = filter(arrayOfItems, function (element) {
@@ -207,6 +207,7 @@ $("#Guit").click(function () {
   });
   console.log(guitarArray);
   displayItems(guitarArray);
+
   $(".cart").click(function () {
     var x = $(this).prev().prev().html();
     var buyObj = filter(arrayOfItems, function (element) {
@@ -229,10 +230,14 @@ $("#Guit").click(function () {
     );
   });
 });
+
+
+// filter drums
 $("#Dru").click(function () {
   var drumsArray = filter(arrayOfItems, function (element) {
     return element.instrument === "drums";
   });
+  displayItems(drumsArray);
   $(".cart").click(function () {
     var x = $(this).prev().prev().html();
     var buyObj = filter(arrayOfItems, function (element) {
@@ -254,12 +259,15 @@ $("#Dru").click(function () {
         h
     );
   });
-  displayItems(drumsArray);
 });
+
+
+///// bass guitar
 $("#Bass").click(function () {
   var bassArray = filter(arrayOfItems, function (element) {
     return element.instrument === "bass";
   });
+
   displayItems(bassArray);
   $(".cart").click(function () {
     var x = $(this).prev().prev().html();
@@ -283,9 +291,10 @@ $("#Bass").click(function () {
     );
   });
 });
+////search filter
 
-function halimfilter() {
-  var n = $("#halim").val();
+function searchItem() {
+  var n = $("#search").val();
   var arr = [];
   for (var i = 0; i < arrayOfItems.length; i++) {
     if (arrayOfItems[i].instrument.includes(n)) {
@@ -337,29 +346,6 @@ function halimfilter() {
 
 var buysObj = [];
 
-function add() {
-  console.log("zdzkajdzalkndz");
-  var x = $(this).prev().prev().html();
-  var buyObj = filter(arrayOfItems, function (element) {
-    return element.model === x;
-  });
-  console.log(buysObj);
-  buysObj.push(buyObj[0]);
-  var h = reduce(
-    buysObj,
-    function (acc, element) {
-      return acc + element.price;
-    },
-    0
-  );
-  $("#accumulator").html(
-    `Nbre of item ` +
-      buysObj.length +
-      ` 
-        <br> Total amount ` +
-      h
-  );
-}
 $(".cart").click(function () {
   var x = $(this).prev().prev().html();
   var buyObj = filter(arrayOfItems, function (element) {
