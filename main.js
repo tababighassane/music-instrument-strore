@@ -131,7 +131,7 @@ var b5 = {
 };
 
 var arrayOfItems = [g1, g2, g3, g4, g5, d1, d2, d3, d4, d5, b1, b2, b3, b4, b5];
-console.log(arrayOfItems);
+
 
 //top seller display
 function bs() {

@@ -165,7 +165,7 @@ var b5 = {
 };
 
 var arrayOfItems = [g1, g2, g3, g4, g5, d1, d2, d3, d4, d5, b1, b2, b3, b4, b5];
-console.log(arrayOfItems);
+
 
 function displayItem(item) {
   return $(
@@ -231,7 +231,6 @@ $("#Guit").click(function () {
   });
 });
 
-
 // filter drums
 $("#Dru").click(function () {
   var drumsArray = filter(arrayOfItems, function (element) {
@@ -260,7 +259,6 @@ $("#Dru").click(function () {
     );
   });
 });
-
 
 ///// bass guitar
 $("#Bass").click(function () {
@@ -301,25 +299,8 @@ function searchItem() {
       arr.push(arrayOfItems[i]);
     }
   }
-  var $itemsContainer = $("#items-container").first();
-  $itemsContainer.empty();
-  for (var j = 0; j < arr.length; j++) {
-    $itemsContainer.append(
-      `<div class="item-container"> 
-        <img src=` +
-        arr[j].image +
-        `alt="item" class="itemImage">` +
-        `<div class="itemModel-container">` +
-        arr[j].model +
-        `</div>
-        <div class="itemPrice-container">` +
-        arr[j].price +
-        ` dinars` +
-        `</div>
-          <button class="cart"> add to cart</button>
-        </div>`
-    );
-  }
+  displayItems(arr);
+
   $(".cart").click(function () {
     var x = $(this).prev().prev().html();
     var buyObj = filter(arrayOfItems, function (element) {
